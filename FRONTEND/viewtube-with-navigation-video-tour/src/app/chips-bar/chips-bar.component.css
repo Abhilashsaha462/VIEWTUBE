@@ -1,0 +1,15 @@
+.btn-group {
+    margin-left: 50px;
+}
+
+.mat-stroked-button {
+    margin-left: 2.5%;
+    background-color:grey;
+    color:white;
+    border-radius:25px;
+}
+
+.mat-raised-button {
+    border-radius:25px;
+}
+

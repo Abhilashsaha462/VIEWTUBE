@@ -1,0 +1,78 @@
+<h2>Reactive Form</h2>
+<form [formGroup]="registerform" [hidden]="visible" (ngSubmit)="fun1()">
+    Enter Title<input type="text" formControlName="Title"><br><br>
+    <div *ngIf="registerform.controls['Title'].hasError('required')">
+      Title is Required </div>
+    <div *ngIf="registerform.controls['Title'].hasError('minlength')">
+      Title min length Required i.e 6
+    </div>
+    <div *ngIf="registerform.controls['Title'].hasError('maxlength')">
+      Title max length Required i.e 100
+    </div>
+    <br>
+
+    Enter email<input type="text" formControlName="email"><br><br>
+    <div *ngIf="registerform.controls['email'].hasError('required')">
+      Email is Required</div>
+    <br>
+
+    Enter StartDate
+    <input type="date" formControlName="startdate" #startdate ><br><br>
+    <div *ngIf="registerform.controls['startdate'].hasError('required')">
+      startdate is required</div>
+    <br>
+
+    Enter EndDate
+    <input type="date" formControlName="enddate" #enddate ><br><br>
+    <div *ngIf="registerform.controls['enddate'].hasError('required')">
+      enddate is required</div>
+    <br>
+
+    Enter StartTime
+    <input type="time" formControlName="starttime" #starttime ><br><br>
+    <div *ngIf="registerform.controls['starttime'].hasError('required')">
+      starttime is required</div>
+    <br>
+
+    Enter EndTime
+    <input type="time" formControlName="endtime" #endtime ><br><br>
+    <div *ngIf="registerform.controls['endtime'].hasError('required')">
+      endtime is required</div>
+    <br>
+
+    Enter Details
+    <input type="text " formControlName="details" #details id="details"><br><br>
+    <div *ngIf="registerform.controls['details'].hasError('required')">
+    Details is required</div>
+    <div *ngIf="registerform.controls['details'].hasError('minlength')">
+    Details minlength required 25</div>
+    <div *ngIf="registerform.controls['details'].hasError('maxlength')">
+    Details maxlength required 100</div>
+    <br>
+
+    <mat-form-field class="example-chip-list" appearance="fill">
+      <h3>Adding Guests Email-id</h3>
+      <mat-chip-list #chipList>
+        <mat-chip *ngFor="let guest of guests" (removed)="remove(guest)">
+          {{guest.name}}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <input placeholder="New guest..."
+               [matChipInputFor]="chipList"
+               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+               [matChipInputAddOnBlur]="addOnBlur"
+               (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+    </mat-form-field>
+    <br>
+
+    <input type="submit" value="REGISTER" [disabled]="registerform.invalid">
+    <!-- <h3> Welcome {{ registerform.value.Title}} Your RegisterDetails {{ registerform.value}} </h3> -->
+    <br><br>
+</form>
+
+<div [hidden]="!visible">
+  <h3>Your live stream event is scheduled successfully</h3>
+</div>

@@ -1,0 +1,91 @@
+<h1>VIDEO FORM</h1>
+<div [hidden]="submitted">
+<h2>VIDEO PREVIEW</h2>
+<form ngNativeValidate #myform="ngForm" (submit)="fun1()">
+  Enter Videourl
+  <input required appVideourl type="text" minlength="25" maxlength="100" required name="t1" ngModel #videourl><br><br>
+  Enter Videotitle
+  <input type="text" required name="t2" ngModel #videotitle><br><br>
+  Enter Description
+  <textarea type="text" minlength="50" maxlength="200" required name="t3" ngModel #description></textarea>
+  <br><br>
+  Enter Videoduration
+  <input required appVideoduration type="videoduration" required name="t4" ngModel #videoduration>
+  <br><br>
+  Enter Channeltitle
+  <input type="text" required name="t5" ngModel #channeltitle>
+  <br><br>
+  Enter Audience type 
+  <input type="radio" id="audience" name="audience" value="Yes,its made for Kids"/> Yes,its made for Kids
+  <input type="radio" id="audience" name="audience" value="Not for kids"/>Not for kids
+  <br><br>
+  Enter Age restriction 
+  <input type="radio" id="age" name="age" value="Yes, Restrict my videos to viewers over 18" /> Yes, Restrict my
+  videos to viewers over 18
+  <input type="radio" id="age" name="age" value="No, don't restrict my videos to viewers over 18" />No, don't
+  restrict my videos to viewers over 18
+  <br><br>
+  Tags
+    <app-chips-bar></app-chips-bar>
+    <br><br>
+  Enter Recording date 
+  <!-- <input type="text" placeholder="dd/mm/yyyy"> -->
+  <input class="mw-8 form-control" id="date" name="date" placeholder="Pick Date" type="date">
+  <br><br>
+  Enter Video location
+  <select name="Locations" id="Locations">
+  <option value="Select location">select location</option>
+  <option value="New york">New York</option>
+  <option value="Paris">Paris</option>
+  <option value="USA">USA</option>
+  <option value="Russia">Russia</option>
+  </select>
+  <br><br>
+  Enter License 
+  <select name="License" id="License">
+      <option value="Select license">select license</option>
+      <option value="Standard Viewtube License">Standard Viewtube License</option>
+      <option value="Creative Common License">Creative Common License</option>
+  </select>
+  <br><br>
+  Enter Distribution 
+  <select name="Distribution" id="Distribution">
+      <option value="Select Distribution">Select distribution</option>
+      <option value="Everywhere">Everywhere</option>
+      <option value="Make this video available only on monetized platforms">Make this video available only on monetized platforms</option>
+  </select>
+  <br><br>
+  Enter Video cateogry 
+  <select name="Category" id="Category">
+      <option value="Select video category">Select video category</option>
+      <option value="Film & Animation">Film & Animation</option>
+      <option value="Autos & Vehicles">Autos & Vehicles</option>
+      <option value="Music">Music</option>
+      <option value="Pets & Animals">Pets & Animals</option>
+      <option value="Sports">Sports</option>
+      <option value="Travel & Events">Travel & Events</option>
+      <option value="Gaming">Gaming</option>
+      <option value="People & Blogs">People & Blogs</option>
+      <option value="Comedy">Comedy</option>
+      <option value="Entertainment">Entertainment</option>
+      <option value="News & Politics">News & Politics</option>
+      <option value="Howto & Style">Howto & Style</option>
+      <option value="Education">Education</option>
+      <option value="Science & Technology">Science & Technology</option>
+      <option value="Nonprofits & Activism">Nonprofits & Activism</option>
+  </select>
+  <br><br>
+  Enter Visibility
+  <select required name="Visibility" id="Visibility">
+      <option value="Select Visibility">Select visibility</option>
+      <option value="private">private</option>
+      <option value="public">public</option>
+  </select>
+  <br><br>
+  <input type="submit" [disabled]="!myform.valid"> 
+</form>
+</div>
+<div [hidden]="!submitted">
+  <h3>Video Uploaded Successfully</h3>
+</div>
+<h2>

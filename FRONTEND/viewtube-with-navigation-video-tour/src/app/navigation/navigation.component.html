@@ -1,0 +1,39 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row >
+     <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon style="color: white;" aria-label="sidenav.toggle();">menu</mat-icon>
+      </button>
+      <span style="color: white;">ViewTube</span>
+     
+  </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav opened="false" [mode]="(isHandset$ | async) ? 'over' : 'side'">
+      <mat-nav-list>
+        <br>
+        <a mat-list-item  routerLink="studiourl">
+          <mat-icon>cloud_upload</mat-icon>upload
+        </a>
+        
+        <a mat-list-item  routerLink="livestreamurl">
+          <mat-icon>live_tv</mat-icon>livestream
+        </a>
+       <br>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    
+      <div>
+      
+      <div class="grid-container">
+        <h1 class="mat-h1"></h1>
+        <mat-grid-list cols="2" rowHeight="350px">
+          
+        </mat-grid-list>
+      </div>
+      </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>

@@ -1,0 +1,26 @@
+<div class="grid-container">
+  
+  <mat-grid-list cols="4" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of video$ | async" [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card" >
+        <mat-card-header>
+          <!-- <img src="{{card.snippet.thumbnails.medium.url}}" > -->
+          <!-- <span>{{card.contentDetails.length}}</span> -->
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <img src="{{card.snippet.thumbnails.medium.url}}" style="margin-bottom: 10px;margin-top: -15px;margin-left: -20px;width: 310px;" >
+            <span  style="margin-left: 92%;width: 11%;margin-top: -10px; opacity: 100%; z-index: 1;background-color: black;">{{card.contentDetails.length}}</span>
+           <span style="text-align:left" > {{card.snippet.title}}</span>
+            <br>
+            <span style="text-align:left">{{card.snippet.channelTitle}}</span>
+            <br>
+            <span style="text-align:left" >
+            {{card.statistics.viewCount}} views.
+            {{card.snippet.relativeTime}}
+          </span>
+          
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

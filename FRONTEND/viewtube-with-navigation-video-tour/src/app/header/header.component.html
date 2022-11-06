@@ -1,0 +1,106 @@
+<a routerLink="">
+  
+  <mat-toolbar color="primary">
+    <mat-toolbar-row >
+     <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon style="color: white;" aria-label="sidenav.toggle();">menu</mat-icon>
+      </button>
+      <span style="color: white;">ViewTube</span>
+     
+            <div>
+              <mat-form-field id="search" style="margin-left:300px;width: 300px;font-size: 14px">
+                <mat-label>Search</mat-label>
+                <input matInput type="text" name="searchquery" id="searchquery">
+              </mat-form-field>
+              <button mat-icon-button matTooltip="Search">
+                <mat-icon>search</mat-icon>
+              </button>
+              <button mat-icon-button matTooltip="Audio Search">
+                <mat-icon>mic</mat-icon>
+              </button>
+            </div>
+
+     <button mat-icon-button style="margin-left: 250px;">
+      <mat-icon style="color: white;" matTooltip="Notifications">notifications</mat-icon>
+     </button>
+     
+     <a routerLink="navigationurl">
+      <button mat-icon-button matTooltip="Create Video">
+        <mat-icon style="color: white;">video_call</mat-icon>
+      </button>
+    </a>
+    <router-outlet></router-outlet>
+
+     <button mat-icon-button>
+      <mat-icon style="color: white;" matTooltip="Apps">apps</mat-icon>
+     </button>
+
+     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+       <mat-icon style="color: white;" matTooltip="Manage Profile">person_outline</mat-icon>
+     </button>
+
+     <mat-menu #menu="matMenu">
+       <button mat-menu-item style="background-color: rgb(20, 20, 20);color: white;">
+       <mat-icon style="background-color: rgb(20, 20, 20);color: white;">settings</mat-icon>
+       <span>Settings</span>
+       </button>
+
+       <button mat-menu-item style="background-color: rgb(20, 20, 20);color: white;">
+        <mat-icon style="background-color: rgb(20, 20, 20);color: white;">help</mat-icon>
+        <span>Help</span>
+      </button>
+
+      <button mat-menu-item style="background-color: rgb(20, 20, 20);color: white;">
+        <mat-icon style="background-color: rgb(20, 20, 20);color: white;">notifications_off</mat-icon>
+        <span>Disabled alerts</span>
+      </button>
+
+      <button mat-menu-item style="background-color: rgb(20, 20, 20);color: white;">
+        <mat-icon style="background-color: rgb(20, 20, 20);color: white;">feedback</mat-icon>
+        <span>Send feedback</span>
+      </button>
+
+    </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav opened="false" [mode]="(isHandset$ | async) ? 'over' : 'side'">
+      <mat-nav-list>
+        <a mat-list-item style="background-color: rgb(20, 20, 20);color: white;">
+          <mat-icon>home</mat-icon>  Home
+        </a>
+        <a mat-list-item style="background-color: rgb(20, 20, 20);color: white;">
+          <mat-icon>explore</mat-icon>  Explore
+        </a>
+        <a mat-list-item style="background-color: rgb(20, 20, 20);color: white;">
+          <mat-icon>subscriptions</mat-icon>  Subscriptions
+        </a>
+        <a mat-list-item style="background-color: rgb(20, 20, 20);color: white;">
+          <mat-icon>video_library</mat-icon>  Library
+        </a>
+        <a mat-list-item style="background-color: rgb(20, 20, 20);color: white;">
+          <mat-icon>history</mat-icon>  History
+        </a>
+        <hr>
+        <p style="margin: 2%;padding: 2%">
+          Sign in to like videos, comment, and subscribe.
+        </p>
+        <button style="color: rgb(231, 36, 111);font-weight: bold;font-size: larger;margin: 4%;
+        width: fit-content;background-color: rgb(20, 20, 20);border-color: grey;">
+        <mat-icon>circle</mat-icon>
+        SIGN IN
+        </button>
+
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <br>
+    
+      <div>
+      <app-chips-bar style="display: block;background-color: black;height: 60px; margin-top: -19px; padding-top: 20px;"></app-chips-bar>
+      <app-thumbnail></app-thumbnail>
+      </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
